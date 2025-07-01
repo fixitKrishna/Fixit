@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fixit - Repair Services</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+    }
+    header {
+      background-color: #007bff;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+    }
+    .search-box {
+      margin: 20px auto;
+      text-align: center;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 80%;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 16px;
+      text-align: center;
+    }
+    .card h3 {
+      margin: 10px 0 5px;
+    }
+    .rating {
+      color: gold;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    Fixit - Repair Services in Noida NCR
+  </header>
+
+  <div class="search-box">
+    <input type="text" placeholder="Search for AC, Plumber, Electrician, etc.">
+  </div>
+
+  <div class="card-container">
+    <div class="card">
+      <h3>Ravi Sharma</h3>
+      <p>AC Repair Expert</p>
+      <p>📞 9876543210</p>
+      <p class="rating">⭐️⭐️⭐️⭐️</p>
+    </div>
+    <div class="card">
+      <h3>Amit Yadav</h3>
+      <p>Electrician</p>
+      <p>📞 9876001122</p>
+      <p class="rating">⭐️⭐️⭐️⭐️⭐️</p>
+    </div>
+    <!-- Add more experts below -->
+  </div>
+
+</body>
+</html>
