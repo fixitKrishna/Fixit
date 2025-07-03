@@ -1,75 +1,122 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fixit - Repair Services</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fixit - Repair Experts</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #f0f2f5;
+      background: linear-gradient(to right, #e0eafc, #cfdef3);
+      color: #333;
     }
     header {
-      background-color: #007bff;
+      background: #0077b6;
       color: white;
-      padding: 20px;
-      text-align: center;
-      font-size: 28px;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .search-box {
-      margin: 20px auto;
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    .search-bar {
+      padding: 2rem;
       text-align: center;
     }
-    input[type="text"] {
-      padding: 10px;
-      width: 80%;
+    .search-bar input {
+      width: 60%;
       max-width: 400px;
+      padding: 10px;
+      border-radius: 25px;
       border: 1px solid #ccc;
-      border-radius: 8px;
+      font-size: 1rem;
     }
-    .card-container {
+    .services, .experts {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      padding: 1rem 2rem;
     }
     .card {
       background: white;
-      border-radius: 16px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      padding: 16px;
+      padding: 1rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       text-align: center;
+      transition: 0.3s;
     }
-    .card h3 {
-      margin: 10px 0 5px;
+    .card:hover {
+      transform: scale(1.05);
     }
-    .rating {
-      color: gold;
-      font-size: 18px;
+    .card img {
+      width: 50px;
+      margin-bottom: 0.5rem;
+    }
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: white;
+      border-radius: 50%;
+      padding: 15px;
+      font-size: 1.5rem;
+      text-decoration: none;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    footer {
+      background: #0077b6;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
-
   <header>
-    Fixit - Repair Services in Noida NCR
+    <h1>Fixit</h1>
+    <span>Delhi NCR | Noida | Greater Noida</span>
   </header>
 
-  <div class="search-box">
-    <input type="text" placeholder="Search for AC, Plumber, Electrician, etc.">
+  <div class="search-bar">
+    <input type="text" placeholder="Search your location..." />
   </div>
 
-  <div class="card-container">
+  <h2 style="padding-left:2rem;">Services</h2>
+  <div class="services">
+    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/2933/2933937.png" /><div>AC Repair</div></div>
+    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/135/135763.png" /><div>Fridge</div></div>
+    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/2784/2784460.png" /><div>Fan</div></div>
+    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/1046/1046857.png" /><div>Washing Machine</div></div>
+    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/2965/2965567.png" /><div>Electrician</div></div>
+    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/1839/1839343.png" /><div>Plumber</div></div>
+    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/7641/7641152.png" /><div>Car Mechanic</div></div>
+    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/2769/2769339.png" /><div>Bike Mechanic</div></div>
+  </div>
+
+  <h2 style="padding-left:2rem;">Top Experts</h2>
+  <div class="experts">
     <div class="card">
-      <h3>Ravi Sharma</h3>
-      <p>AC Repair Expert</p>
+      <h3>Rajeev Sharma</h3>
+      <p>AC Technician - 4.8⭐</p>
       <p>📞 9876543210</p>
-      <p class="rating">⭐️⭐️⭐️⭐️</p>
     </div>
     <div class="card">
-      <h3>Amit Yadav</h3>
-      <p>Electrician</p>
-      <p>📞 9876001122</p>
-      <p class="rating">⭐️⭐️⭐️⭐️⭐️</
+      <h3>Amit Verma</h3>
+      <p>Electrician - 4.7⭐</p>
+      <p>📞 9123456780</p>
+    </div>
+  </div>
+
+  <a class="whatsapp" href="https://wa.me/919999999999" target="_blank">💬</a>
+
+  <footer>
+    &copy; 2025 Fixit | All rights reserved
+  </footer>
+</body>
+</html>
