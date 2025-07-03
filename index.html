@@ -3,120 +3,103 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fixit - Repair Experts</title>
+  <title>Fixit - Repair Services</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #e0eafc, #cfdef3);
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
       color: #333;
     }
-    header {
-      background: #0077b6;
-      color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .filter-section {
+      margin: 20px 0;
     }
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-    }
-    .search-bar {
-      padding: 2rem;
-      text-align: center;
-    }
-    .search-bar input {
-      width: 60%;
-      max-width: 400px;
+    select, button {
       padding: 10px;
-      border-radius: 25px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
+      margin: 10px;
+      font-size: 16px;
     }
-    .services, .experts {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-      padding: 1rem 2rem;
-    }
-    .card {
-      background: white;
-      padding: 1rem;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      text-align: center;
-      transition: 0.3s;
-    }
-    .card:hover {
-      transform: scale(1.05);
-    }
-    .card img {
-      width: 50px;
-      margin-bottom: 0.5rem;
-    }
-    .whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25d366;
-      color: white;
-      border-radius: 50%;
+    .worker-card {
+      background: #fff;
+      margin: 10px auto;
       padding: 15px;
-      font-size: 1.5rem;
-      text-decoration: none;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      width: 80%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      text-align: left;
     }
-    footer {
-      background: #0077b6;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
+    .worker-card strong {
+      color: #007bff;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Fixit</h1>
-    <span>Delhi NCR | Noida | Greater Noida</span>
-  </header>
 
-  <div class="search-bar">
-    <input type="text" placeholder="Search your location..." />
+  <h1>Fixit - Find Repair Experts</h1>
+
+  <div class="filter-section">
+    <select id="serviceSelect">
+      <option value="">-- Select Service --</option>
+      <option value="AC Repair">AC Repair</option>
+      <option value="Fridge Repair">Fridge Repair</option>
+      <option value="Electrician">Electrician</option>
+      <option value="Plumber">Plumber</option>
+      <option value="Car Mechanic">Car Mechanic</option>
+      <option value="Bike Mechanic">Bike Mechanic</option>
+    </select>
+
+    <select id="locationSelect">
+      <option value="">-- Select Location --</option>
+      <option value="Noida">Noida</option>
+      <option value="Greater Noida">Greater Noida</option>
+      <option value="Delhi">Delhi</option>
+    </select>
+
+    <button onclick="filterWorkers()">Search</button>
   </div>
 
-  <h2 style="padding-left:2rem;">Services</h2>
-  <div class="services">
-    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/2933/2933937.png" /><div>AC Repair</div></div>
-    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/135/135763.png" /><div>Fridge</div></div>
-    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/2784/2784460.png" /><div>Fan</div></div>
-    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/1046/1046857.png" /><div>Washing Machine</div></div>
-    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/2965/2965567.png" /><div>Electrician</div></div>
-    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/1839/1839343.png" /><div>Plumber</div></div>
-    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/7641/7641152.png" /><div>Car Mechanic</div></div>
-    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/2769/2769339.png" /><div>Bike Mechanic</div></div>
-  </div>
+  <div id="results"></div>
 
-  <h2 style="padding-left:2rem;">Top Experts</h2>
-  <div class="experts">
-    <div class="card">
-      <h3>Rajeev Sharma</h3>
-      <p>AC Technician - 4.8⭐</p>
-      <p>📞 9876543210</p>
-    </div>
-    <div class="card">
-      <h3>Amit Verma</h3>
-      <p>Electrician - 4.7⭐</p>
-      <p>📞 9123456780</p>
-    </div>
-  </div>
+  <script>
+    const workers = [
+      { name: "Raj AC Repair", service: "AC Repair", location: "Noida", contact: "9876543210", rating: 4.5 },
+      { name: "Vikram Coolers", service: "Fridge Repair", location: "Greater Noida", contact: "9123456780", rating: 4.2 },
+      { name: "Singh Electrician", service: "Electrician", location: "Delhi", contact: "9012345678", rating: 4.8 },
+      { name: "Aman Plumber", service: "Plumber", location: "Noida", contact: "9988776655", rating: 4.1 },
+      { name: "Rahul Car Care", service: "Car Mechanic", location: "Delhi", contact: "9786543210", rating: 4.7 },
+      { name: "Bunty Bike Service", service: "Bike Mechanic", location: "Greater Noida", contact: "9345678901", rating: 4.3 },
+      { name: "Sharma Cooling Services", service: "AC Repair", location: "Delhi", contact: "9456123780", rating: 4.0 },
+      { name: "Delhi Fridge Experts", service: "Fridge Repair", location: "Delhi", contact: "9345087612", rating: 4.4 },
+      { name: "Tiwari Plumbing", service: "Plumber", location: "Noida", contact: "9932456789", rating: 4.6 },
+      { name: "Metro Electricians", service: "Electrician", location: "Greater Noida", contact: "9887766554", rating: 4.9 }
+    ];
 
-  <a class="whatsapp" href="https://wa.me/919999999999" target="_blank">💬</a>
+    function filterWorkers() {
+      const service = document.getElementById("serviceSelect").value;
+      const location = document.getElementById("locationSelect").value;
+      const resultsDiv = document.getElementById("results");
 
-  <footer>
-    &copy; 2025 Fixit | All rights reserved
-  </footer>
+      const filtered = workers.filter(w =>
+        (service === "" || w.service === service) &&
+        (location === "" || w.location === location)
+      );
+
+      resultsDiv.innerHTML = filtered.length
+        ? filtered.map(w => `
+          <div class="worker-card">
+            <strong>${w.name}</strong><br/>
+            Service: ${w.service}<br/>
+            Location: ${w.location}<br/>
+            Contact: <a href="tel:${w.contact}">${w.contact}</a><br/>
+            Rating: ⭐ ${w.rating}
+          </div>
+        `).join("")
+        : `<p>No workers found for selected filters.</p>`;
+    }
+  </script>
+
 </body>
 </html>
