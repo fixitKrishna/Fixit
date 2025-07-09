@@ -16,6 +16,7 @@
     body {
       background: linear-gradient(to right, #f0f4f8, #d9e2ec);
       padding: 20px;
+      
     }
     header {
       text-align: center;
@@ -45,19 +46,19 @@
     .search-bar button {
       padding: 10px 20px;
       background-color: #3182ce;
-      color: white;
+      color: blue;
       border: none;
-      border-radius: 8px;
-      cursor: pointer;
+      border-radius:30px;
+      cursor: Arrow;
     }
     .services, .experts {
-      margin: 40px auto;
+      margin: 70px auto;
       max-width: 1000px;
     }
     .services h2, .experts h2 {
       font-size: 1.5rem;
       margin-bottom: 15px;
-      color: #2d3748;
+      color: #2d3948;
     }
     .service-grid, .expert-grid {
       display: grid;
@@ -65,10 +66,10 @@
       gap: 20px;
     }
     .card {
-      background: white;
-      border-radius: 16px;
+      background: green;
+      border-radius:30px;
       padding: 15px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(7,5,9,0.1);
       text-align: center;
     }
     .card img {
