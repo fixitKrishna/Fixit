@@ -6,6 +6,14 @@ body {
 }
 
 header {
+  .logo {
+  height: 50px;
+  margin-right: 10px;
+}
+nav {
+  display: flex;
+  align-items: center;
+}
   text-align: center;
   background: #fff;
   padding: 20px;
