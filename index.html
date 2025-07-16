@@ -14,21 +14,25 @@
     <p style="text-align: center;">Your local repair expert - Noida | Greater Noida | Delhi NCR</p>
 
     <!-- 🔍 Search Inputs -->
-    <div style="text-align: center;">
-      <input
-        type="text"
-        id="locationSearch"
-        placeholder="Search by location"
-        onkeyup="filterCards()"
-      />
-      <br /><br />
-      <input
-        type="text"
-        id="serviceSearch"
-        placeholder="Search by service"
-        onkeyup="filterCards()"
-      />
-    </div>
+    <!-- 🔍 Location Search Box -->
+<div class="input-container">
+  <span class="icon">📍</span>
+  <input
+    type="text"
+    id="locationSearch"
+    placeholder="Search by location"
+    onkeyup="filterCards()" />
+</div>
+
+<!-- 🔍 Service Search Box -->
+<div class="input-container">
+  <span class="icon">🔧</span>
+  <input
+    type="text"
+    id="serviceSearch"
+    placeholder="Search by service"
+    onkeyup="filterCards()" />
+</div>
   </header>
 
   <main id="service-list">
