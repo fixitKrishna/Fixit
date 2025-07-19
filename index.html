@@ -14,7 +14,6 @@
     <p style="text-align: center; height: 50px; margin: 10px;">
   Your local repair expert - Noida | Greater Noida |
     </p>
-    <!-- 🔍 Search Inputs -->
     <!-- 🔍 Location Search Box -->
 <div class="input-container">
   <span class="icon">🔍</span>
@@ -23,9 +22,10 @@
     id="locationSearch"
     placeholder="Search by location"
     onkeyup="filterCards()" />
+  <button onclick="filterCards()">Search</button>
 </div>
 
-<!-- 🔍 Service Search Box -->
+<!-- 🔧 Service Search Box -->
 <div class="input-container">
   <span class="icon">🔧</span>
   <input
@@ -33,6 +33,7 @@
     id="serviceSearch"
     placeholder="Search by service"
     onkeyup="filterCards()" />
+  <button onclick="filterCards()">Search</button>
 </div>
   </header>
 
