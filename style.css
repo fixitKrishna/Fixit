@@ -2,25 +2,14 @@ body {
   font-family: 'Segoe UI', sans-serif;
     background:
   margin: 0;
-  padding: 0;
-}
-.footer {
-  background-color: #f0f0f0;
-  padding: 20px 10px;
-  text-align: center;
-  border-top: 1px solid #ddd;
-  margin-top: 30px;
+  padding: 
 }
 
 .footer-links {
   margin-bottom: 10px;
 }
 
-.footer-links a {
-  margin: 0 10px;
-  color: #333;
-  text-decoration: none;
-  font-weight: bold;
+.
 }
 
 .footer-links a:hover {
@@ -132,5 +121,70 @@ main {
   padding: 8px 12px;
   text-decoration: none;
   border-radius: 5px;
+}/* ...tumhara purana css code... */
+
+/* Footer CSS yahan se start */
+.footer {
+  width: 100%;
+  background-color: #f0f0f0;
+  padding: 20px 10px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  margin-top: 50px;
+  position: relative;
+  bottom: 0;
 }
+
+.footer-links {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  margin: 0 15px;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+  color: green;
+}
+
+.footer-text {
+  color: #777;
+  font-size: 14px
+
+/* Footer CSS yahan se start */
+.footer {
+  width: 100%;
+  background-color: #f0f0f0;
+  padding: 20px 10px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  margin-top: 50px;
+  position: relative;
+  bottom: 0;
+}
+
+.footer-links {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  margin: 0 15px;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+  color: green;
+}
+
+.footer-text {
+  color: #777;
+  font-size: 14px;
+    }
 
