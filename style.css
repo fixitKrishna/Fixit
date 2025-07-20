@@ -16,7 +16,7 @@ nav {
   align-items: center;
 }
   text-align: center;
-  background: #CDC1FF;
+  background: linear-gradient(to bottom, #e6e6d6, #5a5a5a);
   padding: 20px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
