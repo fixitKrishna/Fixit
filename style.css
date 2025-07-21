@@ -1,36 +1,13 @@
+/* Font and Body Settings */
 body {
   font-family: 'Segoe UI', sans-serif;
-    background:
+  background-color: #f8f8f8;
   margin: 0;
-  padding: 
+  padding: 0;
 }
 
-.footer-links {
-  margin-bottom: 10px;
-}
-
-.
-}
-
-.footer-links a:hover {
-  text-decoration: underline;
-  color: green;
-}
-
-.footer-text {
-  color: #777;
-  font-size: 14px;
-}
+/* Header Styling */
 header {
-  .logo {
-  height: 50px;
-  margin-right: 10px;
-  border-radius: 50px
-}
-nav {
-  display: flex;
-  align-items: center;
-}
   text-align: center;
   background: linear-gradient(to bottom, #e6e6d6, #5a5a5a);
   padding: 20px;
@@ -41,9 +18,8 @@ header h1 {
   color: #007BFF;
   margin: 0;
 }
-<style>
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
+/* Search Box Styling */
 .search-wrapper {
   display: flex;
   justify-content: center;
@@ -58,13 +34,12 @@ header h1 {
 .search-input {
   font-family: 'Font Awesome 6 Free', Arial, sans-serif;
   font-weight: 400;
-  padding: 20px 20px 20px 20px; /* left padding for icon */
+  padding: 20px;
   font-size: 20px;
   border: 3px solid #ccc;
   border-radius: 5px;
   width: 200px;
 }
-</style>
 
 .search-bar {
   margin-top: 20px;
@@ -88,6 +63,7 @@ header h1 {
   cursor: pointer;
 }
 
+/* Main Area Styling */
 main {
   display: flex;
   flex-wrap: wrap;
@@ -95,6 +71,7 @@ main {
   margin: 25px;
 }
 
+/* Service Cards */
 .card {
   background: white;
   border-radius: 10px;
@@ -113,6 +90,7 @@ main {
   color: #333;
 }
 
+/* WhatsApp Button */
 .whatsapp {
   display: inline-block;
   margin-top: 10px;
@@ -121,9 +99,25 @@ main {
   padding: 8px 12px;
   text-decoration: none;
   border-radius: 5px;
-}/* ...tumhara purana css code... */
+}
 
-/* Footer CSS yahan se start */
+/* Complaint Form */
+.form-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.form-container input,
+.form-container select,
+.form-container button {
+  padding: 10px;
+  margin: 5px;
+  width: 250px;
+  max-width: 90%;
+  font-size: 16px;
+}
+
+/* Footer CSS */
 .footer {
   width: 100%;
   background-color: #f0f0f0;
@@ -153,38 +147,6 @@ main {
 
 .footer-text {
   color: #777;
-  font-size: 14px
-
-/* Footer CSS yahan se start */
-.footer {
-  width: 100%;
-  background-color: #f0f0f0;
-  padding: 20px 10px;
-  text-align: center;
-  border-top: 1px solid #ddd;
-  margin-top: 50px;
-  position: relative;
-  bottom: 0;
+  font-size: 15px;
 }
-
-.footer-links {
-  margin-bottom: 10px;
-}
-
-.footer-links a {
-  margin: 0 15px;
-  color: #333;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.footer-links a:hover {
-  text-decoration: underline;
-  color: green;
-}
-
-.footer-text {
-  color: #777;
-  font-size: 14px;
-    }
 
