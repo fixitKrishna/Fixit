@@ -6,71 +6,70 @@
   <title>Fixit - Repair Services</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-  <!-- Footer -->
-<footer class="footer">
-  <div class="footer-links">
-    <a href="terms.html">Terms & Conditions</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="support.html">Support</a>
-    <a href="contact.html">Contact Us</a>
-  </div>
-  <p class="footer-text">© 2025 Fixit. All rights reserved.</p>
-</footer>
-</body>
 <body>
   <header>
     <div style="text-align: center;">
       <div style="width: 300px; margin: auto; overflow: hidden; border-radius: 20px;">
-  <img src="logo.png" alt="Fixit Logo" style="width: 100%;" />
+        <img src="logo.png" alt="Fixit Logo" style="width: 100%;" />
       </div>
-    <p style="text-align: center; height: 50px; margin: 10px;">
-  Your local repair expert - Noida | Greater Noida |
-    </p>
-    <!-- 🔍 Location Search Box -->
-<div class="input-container">
-  <span class="icon">🔍</span>
-  <input
-    type="text"
-    id="locationSearch"
-    placeholder="Search by location"
-    onkeyup="filterCards()" />
-  <button onclick="filterCards()">Search</button>
-</div>
+      <p style="text-align: center; height: 50px; margin: 10px;">
+        Your local repair expert - Noida | Greater Noida |
+      </p>
 
-<!-- 🔧 Service Search Box -->
-<div class="input-container"
-  style="margin-bottom:15px;">
-  
-  <span class="icon">🔧</span>
-  <input
-    type="text"
-    id="serviceSearch"
-    placeholder="Search by service"
-    onkeyup="filterCards()" />
-  <button onclick="filterCards()">Search</button>
-</div>
+      <!-- 🔍 Location Search Box -->
+      <div class="input-container">
+        <span class="icon">🔍</span>
+        <input
+          type="text"
+          id="locationSearch"
+          placeholder="Search by location"
+          onkeyup="filterCards()" />
+        <button onclick="filterCards()">Search</button>
+      </div>
+
+      <!-- 🔧 Service Search Box -->
+      <div class="input-container" style="margin-bottom:15px;">
+        <span class="icon">🔧</span>
+        <input
+          type="text"
+          id="serviceSearch"
+          placeholder="Search by service"
+          onkeyup="filterCards()" />
+        <button onclick="filterCards()">Search</button>
+      </div>
+    </div>
   </header>
 
   <main id="service-list">
     <!-- 🛠️ Complaint Form Start -->
-<div class="form-container">
-  <h2>Fixit Complaint Form</h2>
-  <input type="text" id="name" placeholder="Your Name" required />
-  <input type="tel" id="phone" placeholder="Phone Number" required />
-  <select id="service">
-    <option value="">Select Service</option>
-    <option value="AC Repair">AC Repair</option>
-    <option value="Fridge Repair">Fridge Repair</option>
-    <option value="Electrician">Electrician</option>
-    <option value="Plumber">Plumber</option>
-    <option value="Washing Machine">Washing Machine</option>
-  </select>
-  <input type="text" id="location" placeholder="Your Location" />
-  <button onclick="submitForm()">Submit</button>
-</div>
-<!-- 🛠️ Complaint Form End -->
-    <!-- 🚫 No service provider cards for now -->
+    <div class="form-container">
+      <h2>Fixit Complaint Form</h2>
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="tel" id="phone" placeholder="Phone Number" required />
+      <select id="service">
+        <option value="">Select Service</option>
+        <option value="AC Repair">AC Repair</option>
+        <option value="Fridge Repair">Fridge Repair</option>
+        <option value="Electrician">Electrician</option>
+        <option value="Plumber">Plumber</option>
+        <option value="Washing Machine">Washing Machine</option>
+      </select>
+      <input type="text" id="location" placeholder="Your Location" />
+      <button onclick="submitForm()">Submit</button>
+    </div>
+    <!-- 🛠️ Complaint Form End -->
   </main>
+
+  <!-- ✅ Footer at bottom -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="terms.html">Terms & Conditions</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="support.html">Support</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <p class="footer-text">© 2025 Fixit. All rights reserved.</p>
+  </footer>
 
   <script>
     function filterCards() {
@@ -91,4 +90,4 @@
     }
   </script>
 </body>
-</html>
+  </html>
