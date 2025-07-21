@@ -5,65 +5,179 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fixit - Repair Services</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
+
+    /* Service Grid */
+    .service-icons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .icon-card {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 15px;
+      transition: transform 0.2s ease;
+      cursor: pointer;
+    }
+
+    .icon-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .icon-card img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
+    .icon-card p {
+      font-size: 14px;
+      color: #333;
+      margin: 0;
+      font-weight: 500;
+    }
+
+    /* Header and Logo */
+    header {
+      text-align: center;
+      padding: 20px 10px 0;
+    }
+
+    header img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 20px;
+    }
+
+    header p {
+      margin: 10px;
+      color: #333;
+    }
+
+    /* Search boxes */
+    .input-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px auto;
+      max-width: 400px;
+    }
+
+    .input-container input {
+      flex: 1;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-right: 5px;
+    }
+
+    .input-container button {
+      padding: 8px 12px;
+      border-radius: 5px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    /* Complaint form */
+    .form-container {
+      max-width: 400px;
+      margin: 30px auto 10px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .form-container h2 {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .form-container input,
+    .form-container select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    .footer {
+      background: #f0f0f0;
+      padding: 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .footer-links {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      margin: 0 10px;
+      color: #555;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: green;
+      text-decoration: underline;
+    }
+
+    .footer-text {
+      color: #777;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
-  <div class="service-icons">
-  <div class="icon-card" onclick="location.href='#electrician-workers'">
-    <img src="icons/electrician.png" alt="Electrician">
-    <p>Electrician</p>
-  </div>
-  <div class="icon-card" onclick="location.href='#plumber-workers'">
-    <img src="icons/plumber.png" alt="Plumber">
-    <p>Plumber</p>
-  </div>
-  <div class="icon-card" onclick="location.href='#ac-repair-workers'">
-    <img src="icons/ac.png" alt="AC Repair">
-    <p>AC Repair</p>
-  </div>
-  <div class="icon-card" onclick="location.href='#fridge-repair-workers'">
-    <img src="icons/fridge.png" alt="Fridge Repair">
-    <p>Fridge Repair</p>
-  </div>
-  <div class="icon-card" onclick="location.href='#fan-repair-workers'">
-    <img src="icons/fan.png" alt="Fan Repair">
-    <p>Fan Repair</p>
-  </div>
-  </div>
+
+  <!-- 🔧 Header with Logo & Search -->
   <header>
-    <div style="text-align: center;">
-      <div style="width: 300px; margin: auto; overflow: hidden; border-radius: 20px;">
-        <img src="logo.png" alt="Fixit Logo" style="width: 100%;" />
-      </div>
-      <p style="text-align: center; height: 50px; margin: 10px;">
-        Your local repair expert - Noida | Greater Noida |
-      </p>
+    <div>
+      <img src="logo.png" alt="Fixit Logo" />
+      <p>Your local repair expert - Noida | Greater Noida |</p>
 
       <!-- 🔍 Location Search Box -->
       <div class="input-container">
-        <span class="icon">🔍</span>
-        <input
-          type="text"
-          id="locationSearch"
-          placeholder="Search by location"
-          onkeyup="filterCards()" />
+        <input type="text" id="locationSearch" placeholder="Search by location" onkeyup="filterCards()" />
         <button onclick="filterCards()">Search</button>
       </div>
 
       <!-- 🔧 Service Search Box -->
-      <div class="input-container" style="margin-bottom:15px;">
-        <span class="icon">🔧</span>
-        <input
-          type="text"
-          id="serviceSearch"
-          placeholder="Search by service"
-          onkeyup="filterCards()" />
+      <div class="input-container">
+        <input type="text" id="serviceSearch" placeholder="Search by service" onkeyup="filterCards()" />
         <button onclick="filterCards()">Search</button>
       </div>
     </div>
   </header>
 
+  <!-- 📋 Complaint Form -->
   <main id="service-list">
-    <!-- 🛠️ Complaint Form Start -->
     <div class="form-container">
       <h2>Fixit Complaint Form</h2>
       <input type="text" id="name" placeholder="Your Name" required />
@@ -79,10 +193,33 @@
       <input type="text" id="location" placeholder="Your Location" />
       <button onclick="submitForm()">Submit</button>
     </div>
-    <!-- 🛠️ Complaint Form End -->
+
+    <!-- ✅ Icons Grid Section: Neeche Complaint Form ke -->
+    <div class="service-icons">
+      <div class="icon-card" onclick="location.href='#electrician-workers'">
+        <img src="icons/electrician.png" alt="Electrician">
+        <p>Electrician</p>
+      </div>
+      <div class="icon-card" onclick="location.href='#plumber-workers'">
+        <img src="icons/plumber.png" alt="Plumber">
+        <p>Plumber</p>
+      </div>
+      <div class="icon-card" onclick="location.href='#ac-repair-workers'">
+        <img src="icons/ac.png" alt="AC Repair">
+        <p>AC Repair</p>
+      </div>
+      <div class="icon-card" onclick="location.href='#fridge-repair-workers'">
+        <img src="icons/fridge.png" alt="Fridge Repair">
+        <p>Fridge Repair</p>
+      </div>
+      <div class="icon-card" onclick="location.href='#fan-repair-workers'">
+        <img src="icons/fan.png" alt="Fan Repair">
+        <p>Fan Repair</p>
+      </div>
+    </div>
   </main>
 
-  <!-- ✅ Footer at bottom -->
+  <!-- 📌 Footer -->
   <footer class="footer">
     <div class="footer-links">
       <a href="terms.html">Terms & Conditions</a>
@@ -93,6 +230,7 @@
     <p class="footer-text">© 2025 Fixit. All rights reserved.</p>
   </footer>
 
+  <!-- 🧠 Script -->
   <script>
     function filterCards() {
       const locationInput = document.getElementById("locationSearch").value.toLowerCase();
@@ -109,6 +247,10 @@
           card.style.display = "none";
         }
       });
+    }
+
+    function submitForm() {
+      alert("Complaint submitted! 🚀 (Demo only)");
     }
   </script>
 </body>
