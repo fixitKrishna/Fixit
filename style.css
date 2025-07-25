@@ -40,6 +40,7 @@ body {
 
 /* Header Styling */
 header {
+  width:100%
   text-align: center;
   background: linear-gradient(to bottom, #e6e6d6, #5a5a5a);
   padding: 20px;
