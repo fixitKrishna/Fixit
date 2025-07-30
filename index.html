@@ -15,6 +15,9 @@
 
 
     /* Service Grid */
+    <div id="location-box" style="text-align:center; padding:10px; font-size:16px; background:#f1f1f1; color:#333;">
+  📍 Detecting your location...
+</div>
 </div>
     .service-icons {
       display: grid;
@@ -157,6 +160,7 @@
     }
   </style>
 </head>
+  
 <body>
   <div id="preloader">
   <div class="loader"></div>
@@ -173,6 +177,40 @@
         <input type="text" id="locationSearch" placeholder="Search by location" onkeyup="filterCards()" />
         <button onclick="filterCards()">Search</button>
       </div>
+       <script>
+  function getLocation() {
+    const locationElement = document.getElementById("location-box");
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+
+          // City name via OpenStreetMap reverse geocoding
+          fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`)
+            .then(response => response.json())
+            .then(data => {
+              const address = data.address;
+              const city = address.city || address.town || address.village || address.county || "your area";
+              locationElement.textContent = `📍 You are in ${city}`;
+            })
+            .catch(() => {
+              locationElement.textContent = `📍 Location: ${lat.toFixed(2)}, ${lon.toFixed(2)}`;
+            });
+        },
+        () => {
+          locationElement.textContent = "❌ Location access denied.";
+        }
+      );
+    } else {
+      locationElement.textContent = "❌ Geolocation not supported by your browser.";
+    }
+  }
+
+  // Trigger on load
+  window.onload = getLocation;
+       </script>
 
       <!-- 🔧 Service Search Box -->
       <div class="input-container">
@@ -264,6 +302,6 @@
     function submitForm() {
       alert("Complaint submitted! 🚀 (Demo only)");
     }
-  </script>
+ 
 </body>
   </html>
