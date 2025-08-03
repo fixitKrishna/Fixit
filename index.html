@@ -5,13 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fixit - Repair Services</title>
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Google Maps API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh9inQQr5i5Zj5Xp15feOFvmxZn_3_hbE&callback=initMap" async defer></script>
+
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
       background-color: #f8f8f8;
-</div>
+    }
+
+    /* Service Grid */
     .service-icons {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -46,7 +52,6 @@
       margin: 0;
       font-weight: 500;
     }
-  
 
     /* Header and Logo */
     header {
@@ -97,245 +102,91 @@
       background: #fff;
       padding: 20px;
       border-radius: 15px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    .form-container h2 {
-      margin-bottom: 15px;
-      text-align: center;
-    }
-
-    .form-container input,
-    .form-container select {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .form-container button {
-      width: 100%;
-      padding: 10px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-
-    /* Footer */
-    .footer {
-      background: #f0f0f0;
-      padding: 20px;
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    .footer-links {
-      margin-bottom: 10px;
-    }
-
-    .footer-links a {
-      margin: 0 10px;
-      color: #555;
-      text-decoration: none;
-    }
-
-    .footer-links a:hover {
-      color: green;
-      text-decoration: underline;
-    }
-
-    .footer-text {
-      color: #777;
-      font-size: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
   </style>
 </head>
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
 <body>
+  <!-- Location Box -->
   <div id="location-box" style="text-align:center; padding:10px; font-size:16px; background:#f1f1f1; color:#333;">
-  📍 Detecting your location...
-  </div>
-  <div id="preloader">
-  <div class="loader"></div>
+    📍 Detecting your location...
   </div>
 
-  <!-- 🔧 Header with Logo & Search -->
+  <!-- Map Display -->
+  <div id="map" style="height: 300px; width: 100%;"></div>
+
+  <!-- Header Section -->
   <header>
-    <div>
-      <img src="logo.png" alt="Fixit Logo" />
-      <p>Your local repair expert - Noida | Greater Noida |</p>
-      <p id="location-box">📍 Detecting location...</p>
-
-      <!-- 🔍 Location Search Box -->
-      <div class="input-container">
-        <input type="text" id="locationSearch" placeholder="Search by location" onkeyup="filterCards()" />
-        <button onclick="filterCards()">Search</button>
-      </div>
-       <script>
-  function getLocation() {
-    const locationElement = document.getElementById("location-box");
-
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const lat = position.coords.latitude;
-          const lon = position.coords.longitude;
-
-          // City name via OpenStreetMap reverse geocoding
-          fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`)
-            .then(response => response.json())
-            .then(data => {
-              const address = data.address;
-              const city = address.city || address.town || address.village || address.county || "your area";
-              locationElement.textContent = `📍 You are in ${city}`;
-            })
-            .catch(() => {
-              locationElement.textContent = `📍 Location: ${lat.toFixed(2)}, ${lon.toFixed(2)}`;
-            });
-        },
-        () => {
-          locationElement.textContent = "❌ Location access denied.";
-        }
-      );
-    } else {
-      locationElement.textContent = "❌ Geolocation not supported by your browser.";
-    }
-  }
-
-  // Trigger on load
-  window.onload = getLocation;
-       </script>
-
-      <!-- 🔧 Service Search Box -->
-      <div class="input-container">
-        <input type="text" id="serviceSearch" placeholder="Search by service" onkeyup="filterCards()" />
-        <button onclick="filterCards()">Search</button>
-      </div>
-    </div>
-    <script>
-  window.addEventListener('load', function () {
-    document.getElementById('preloader').style.display = 'none';
-  });
-    </script>
+    <img src="logo.jpg" alt="Fixit Logo">
+    <p>Find trusted repair services near you</p>
   </header>
 
-  <!-- 📋 Complaint Form -->
-  <main id="service-list">
-    <div class="form-container">
-      <h2>Fixit Complaint Form</h2>
-      <input type="text" id="name" placeholder="Your Name" required />
-      <input type="tel" id="phone" placeholder="Phone Number" required />
-      <select id="service">
-        <option value="">Select Service</option>
-        <option value="AC Repair">AC Repair</option>
-        <option value="Fridge Repair">Fridge Repair</option>
-        <option value="Electrician">Electrician</option>
-        <option value="Plumber">Plumber</option>
-        <option value="Washing Machine">Washing Machine</option>
-      </select>
-      <input type="text" id="location" placeholder="Your Location" />
-      <button onclick="submitForm()">Submit</button>
+  <!-- Search Section -->
+  <div class="input-container">
+    <input type="text" placeholder="Search for services...">
+    <button>Search</button>
+  </div>
+
+  <!-- Services Grid -->
+  <div class="service-icons">
+    <!-- Tumhare icons yaha paste karo -->
+    <div class="icon-card">
+      <img src="electrician.jpg" alt="Electrician">
+      <p>Electrician</p>
     </div>
-
-    <!-- ✅ Icons Grid Section: Neeche Complaint Form ke -->
-    
-      <div class="service-icons">
-  <div class="icon-card" onclick="location.href='#electrician-workers'">
-    <img src="electrician.jpg" alt="Electrician">
-    <p>Electrician</p>
-  </div>
-  <div class="icon-card" onclick="location.href='#plumber-workers'">
-    <img src="plumber.jpg" alt="Plumber">
-    <p>Plumber</p>
-  </div>
-  <div class="icon-card" onclick="location.href='#ac-repair-workers'">
-    <img src="acrepair.jpg" alt="AC Repair">
-    <p>AC Repair</p>
-  </div>
-  <div class="icon-card" onclick="location.href='#fridge-repair-workers'">
-    <img src="fridgerepair.jpg" alt="Fridge Repair">
-    <p>Fridge Repair</p>
-  </div>
-  <div class="icon-card" onclick="location.href='#fan-repair-workers'">
-    <img src="fanrepair.jpg" alt="Fan Repair">
-    <p>Fan Repair</p>
-  </div>
-      </div>
-  </main>
-
-  <!-- 📌 Footer -->
-  <footer class="footer">
-    <div class="footer-links">
-      <a href="terms.html">Terms & Conditions</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="support.html">Support</a>
-      <a href="contact.html">Contact Us</a>
+    <div class="icon-card">
+      <img src="plumber.jpg" alt="Plumber">
+      <p>Plumber</p>
     </div>
-    <p class="footer-text">© 2025 Fixit. All rights reserved.</p>
-  </footer>
+    <!-- Baaki icons bhi isi tarah -->
+  </div>
 
-  <!-- 🧠 Script -->
+  <!-- Complaint Form -->
+  <div class="form-container">
+    <h3>Complaint Form</h3>
+    <input type="text" placeholder="Your Name" style="width:100%; margin-bottom:10px;">
+    <input type="text" placeholder="Your Issue" style="width:100%; margin-bottom:10px;">
+    <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; border-radius:5px;">
+      Submit
+    </button>
+  </div>
+
+  <!-- Location Detection Script -->
   <script>
-    function filterCards() {
-      const locationInput = document.getElementById("locationSearch").value.toLowerCase();
-      const serviceInput = document.getElementById("serviceSearch").value.toLowerCase();
-      const cards = document.querySelectorAll(".card");
+    function initMap() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            var userLocation = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
 
-      cards.forEach(card => {
-        const service = card.getAttribute("data-service").toLowerCase();
-        const location = card.getAttribute("data-location").toLowerCase();
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 15,
+              center: userLocation
+            });
 
-        if (service.includes(serviceInput) && location.includes(locationInput)) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
-      });
-    }
+            new google.maps.Marker({
+              position: userLocation,
+              map: map,
+              title: "You are here!"
+            });
 
-    function submitForm() {
-      alert("Complaint submitted! 🚀 (Demo only)");
-    }
- <script>
-function initMap() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      function (position) {
-        var userLocation = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
-
-        // Map initialize
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
-          center: userLocation
-        });
-
-        // Marker add
-        new google.maps.Marker({
-          position: userLocation,
-          map: map,
-          title: "You are here!"
-        });
-
-        // Location box update
+            document.getElementById('location-box').innerHTML =
+              "📍 Your location detected!";
+          },
+          function () {
+            document.getElementById('location-box').innerHTML =
+              "❌ Location access denied.";
+          }
+        );
+      } else {
         document.getElementById('location-box').innerHTML =
-          "📍 Your location detected!";
-      },
-      function () {
-        document.getElementById('location-box').innerHTML =
-          "❌ Location access denied.";
+          "❌ Geolocation not supported.";
       }
-    );
-  } else {
-    document.getElementById('location-box').innerHTML =
-      "❌ Geolocation not supported.";
-  }
-}
-</script>
+    }
+  </script>
 </body>
-  </html>
+</html>
