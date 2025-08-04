@@ -1,9 +1,26 @@
 /* Font and Body Settings */
-body {
+  body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f8f8f8;
+  background: linear-gradient(to bottom, #FFD580, #FFA500); /* Light Orange Gradient */
   margin: 0;
   padding: 0;
+  }
+header {
+  width: 100%;
+  text-align: center;
+  background: transparent; /* remove previous gradient */
+  padding: 10px 0;
+  box-shadow: none;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.logo img {
+  max-width: 150px;
+  height: auto;
 }
 .service-icons {
   display: flex;
